@@ -12,6 +12,7 @@ import { ProductDetailsComponent } from "../components/product-dash-boared/produ
 import { AuthComponent } from "../components/auth/auth.component";
 import { AuthGuard } from "../service/auth.guard";
 import { FairDetailsComponent } from "../components/fair/fair-details/fair-details.component";
+import { UserRoleGuard } from "../service/user-role.guard";
 
 
 const appRoutes:Routes=[
@@ -31,7 +32,7 @@ const appRoutes:Routes=[
         component:UesrDashBoaredComponent,
         title:'user',
         canActivateChild:[AuthGuard],
-        canActivate:[AuthGuard],
+        canActivate:[AuthGuard,UserRoleGuard],
         data:{
             userRole:['admin','superAdmin']
         },
@@ -60,7 +61,7 @@ const appRoutes:Routes=[
         path:'product',
         component:ProductDashBoaredComponent,
         title:'product',
-        canActivate:[AuthGuard],
+        canActivate:[AuthGuard,UserRoleGuard],
         data:{
             userRole:['buyer','admin','superAdmin']
         },
@@ -86,7 +87,7 @@ const appRoutes:Routes=[
         path:'fair',
         component:FairComponent,
         title:'fair',
-        canActivate:[AuthGuard],
+        canActivate:[AuthGuard,UserRoleGuard],
         data:{
             userRole:['superAdmin']
         },

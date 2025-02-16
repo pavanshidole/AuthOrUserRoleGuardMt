@@ -27,6 +27,16 @@ export class ProductDashBoaredComponent implements OnInit {
     })
   }
 
+
+  onprod(prod:Iproduct){
+    this._router.navigate([prod.PId],{
+      relativeTo:this._route,
+      queryParams:{
+        canEdit:prod.canReturn
+      }
+    })
+  }
+
   // onProd(prod:Iproduct){
     
   //   this._router.navigate([prod.PId],{
