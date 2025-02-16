@@ -19,6 +19,7 @@ export class UesrDashBoaredComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    
     this.userArr=this._userService.fetchAllUser();
     this._router.navigate([this.userArr[0].userId],{
       relativeTo:this._route

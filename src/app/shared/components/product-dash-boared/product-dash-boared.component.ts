@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ProductDashBoaredComponent implements OnInit {
 
   prodArr :Array<Iproduct>=[];
+  selectedId!:string;
   
 
   constructor(
@@ -20,21 +21,25 @@ export class ProductDashBoaredComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-   
+    
     this.prodArr=this._prodService.fetchAllUser()
     this._router.navigate([this.prodArr[0].PId],{
       relativeTo:this._route
     })
+    this.selectedId=this.prodArr[0].PId
   }
 
 
   onprod(prod:Iproduct){
+    
     this._router.navigate([prod.PId],{
       relativeTo:this._route,
       queryParams:{
         canEdit:prod.canReturn
       }
     })
+
+    this.selectedId=this.prodArr[0].PId
   }
 
   // onProd(prod:Iproduct){

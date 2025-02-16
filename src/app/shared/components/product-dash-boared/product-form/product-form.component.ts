@@ -39,10 +39,13 @@ export class ProductFormComponent implements OnInit {
 
       this.productForm.patchValue({...this.prodObj,canReturn:canReturn});
 
-      if(this._route.snapshot.queryParams['canEdit']===0){
-        this.productForm.disable();
-        this.btnDisable=true
-      }
+      this._route.queryParams
+      .subscribe((res:Params)=>{
+        if(res['canEdit']==='0'){
+          this.productForm.disable()
+          this.btnDisable=true
+        }
+      })
     }else{
       this.isInEditMode=false;
     }
@@ -71,7 +74,8 @@ export class ProductFormComponent implements OnInit {
 
   onUpdate(){
     if(this.isInEditMode){
-      let updateObj={...this.productForm.value,PId:this.prodId};
+      let canReturn=this.productForm.value.canReturn==='yes'?1:0;
+      let updateObj={...this.productForm.value,PId:this.prodId,canReturn:canReturn};
       this._prodService.onUpdateUser(updateObj);
     }
   }
