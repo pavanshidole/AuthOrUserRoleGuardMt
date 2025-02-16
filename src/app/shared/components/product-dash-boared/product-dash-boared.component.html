@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-12 mb-4 text-right">
+        <button [routerLink]="['AddProd']" class="btn btn-sm btn-info">Add product</button>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        <ul class="list-group" *ngIf="prodArr.length > 0 ; else noUser">
+            <li class="list-group-item" [queryParams]="{canEdit:prod.canReturn}" [routerLink]="[prod.PId]"  *ngFor="let prod of prodArr" >
+                {{prod.pName}}
+            </li>
+        </ul>
+        <ng-template #noUser>
+            <p class="alert alert-danger">in prodArr prodInfo is not avialable</p>
+        </ng-template>
+    </div>
+    <div class="col-md-8">
+        <router-outlet></router-outlet>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<main class="main">
+    <div class="card auth-form">
+        <div class="card-body">
+            <div *ngIf="isLogin">
+                <h3>Log In</h3>
+                <form [formGroup]="loginForm" (ngSubmit)="onLogIn()">
+                    <div class="form-group">
+                        <label for="email">email</label>
+                        <input type="text" formControlName="email" class="form-control" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">password</label>
+                        <input type="text" formControlName="password" class="form-control" id="password">
+                    </div>
+                    <button type="submit" class="btn btn-sm btn-block btn-outline-primary">Log In</button>
+                </form>
+                <p>
+                    <a (click)="isLogin=!isLogin" href="javascript:;">do not have create Accout !!</a>
+                </p>
+            </div>
+
+            <div *ngIf="!isLogin">
+                <h3>sign Up</h3>
+                <form [formGroup]="SignUpForm">
+                    <div class="form-group">
+                        <label for="email">email</label>
+                        <input type="text" formControlName="email" class="form-control" id="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">password</label>
+                        <input type="text" formControlName="password" class="form-control" id="password">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">ConfirmPassword</label>
+                        <input type="text" formControlName="confirmPassword" class="form-control" id="confirmPassword">
+                    </div>
+                    <div class="form-group">
+                        <label for="userRole">userRole</label>
+                        <select type="text" formControlName="userRole" class="form-control" id="userRole">
+                            <option value="buyer">buyer</option>
+                            <option value="admin">admin</option>
+                            <option value="superAdmin">super Admin</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-sm btn-block btn-outline-primary">Sign Up</button>
+                </form>
+                <p>
+                    <a (click)="isLogin=!isLogin" href="javascript:;">user we have already Accout !!</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</main>

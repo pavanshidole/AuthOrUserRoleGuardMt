@@ -1,0 +1,24 @@
+
+<div class="row">
+    <div class="col-12 mb-4 text-right">
+        <button [routerLink]="['/user','AddUser']" class="btn btn-sm btn-info">Add user</button>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        <ul class="list-group" *ngIf="userArr.length > 0 ; else noUser">
+            <li class="list-group-item" [queryParams]="{userRole:user.userRole}" routerLinkActive="active" [routerLink]="['/user',user.userId]" *ngFor="let user of userArr">
+                {{user.userName}}
+            </li>
+        </ul>
+        <ng-template #noUser>
+            <p class="alert alert-danger">in userArr userInfo is not avialable</p>
+        </ng-template>
+    </div>
+    <div class="col-md-8">
+        <router-outlet></router-outlet>
+    </div>
+</div>

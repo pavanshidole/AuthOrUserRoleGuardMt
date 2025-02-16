@@ -1,0 +1,10 @@
+
+
+
+<p class="alert alert-info"> the user name is <strong>{{userObj.userName}}</strong> and it's role is <strong>{{userObj.userRole}}</strong></p>
+
+
+<div>
+    <button [queryParamsHandling]="'preserve'" [routerLink]="['/user',userObj.userId,'EditUser']" class="btn btn-sm btn-outline-primary mr-3">Edit</button>
+    <button (click)="onRemove()" class="btn btn-sm btn-outline-danger">Remove</button>
+</div>

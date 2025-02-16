@@ -1,0 +1,7 @@
+<p class="alert alert-info">the product name is <strong>{{prodObj.pName}}</strong> and it's status is <strong>{{prodObj.pStatus}}</strong></p>
+
+
+<div>
+    <button [queryParamsHandling]="'preserve'" [routerLink]="['/product',prodObj.PId,'EditProd']" class="btn btn-sm btn-primary mr-3">Edit</button>
+    <button (click)="onRemove()" class="btn btn-sm btn-outline-danger">Remove</button>
+</div>

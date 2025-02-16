@@ -1,0 +1,26 @@
+<h1>{{isInEditMode? 'Update User':'Add User'}}</h1>
+
+
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="card">
+            <div class="card-body">
+                <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label for="userName">userName</label>
+                        <input type="text" formControlName="userName" class="form-control" id="userName">
+                    </div>
+                    <div class="form-group">
+                        <label for="userRole">userRole</label>
+                        <select type="text" formControlName="userRole" class="form-control" id="userRole">
+                            <option value="candidate">candidate</option>
+                            <option value="admin">admin</option>
+                        </select>
+                    </div>
+                    <button [disabled]="btnDisable" type="submit" class="btn btn-sm btn-block btn-outline-primary">{{isInEditMode? 'Update User' : 'Add User'}}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+
+<div class="banner">
+    <img [src]="fairObj.bannerUrl" [alt]="fairObj.fairName" [title]="fairObj.fairName">
+
+    <div class="eventAndType">
+        <h3>{{fairObj.fairName}}</h3>
+        <p class="mb-0">{{fairObj.type}}</p>
+        <p class="mb-0">{{((fairObj.startDate* 1000)-86400000) | date}}</p>
+    </div>
+
+    <div class="description">
+        <p [innerHTML]="fairObj.candidateDescription"></p>
+        <p [innerHTML]="fairObj.schoolDescription"></p>
+    </div>
+</div>
