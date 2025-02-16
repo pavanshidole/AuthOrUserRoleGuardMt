@@ -24,7 +24,10 @@ export class ProductDashBoaredComponent implements OnInit {
     
     this.prodArr=this._prodService.fetchAllUser()
     this._router.navigate([this.prodArr[0].PId],{
-      relativeTo:this._route
+      relativeTo:this._route,
+      queryParams:{
+        canEdit:this.prodArr[0].canReturn
+      }
     })
     this.selectedId=this.prodArr[0].PId
   }
